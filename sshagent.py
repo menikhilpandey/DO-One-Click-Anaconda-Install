@@ -1,9 +1,13 @@
-import paramiko, base64
-key = paramiko.RSAKey(data=base64.decodestring('rsa_key'))
-client = paramiko.SSHClient()
-client.get_host_keys().add('ssh.example.com', 'ssh-rsa', key)
-client.connect('ssh.example.com', username='strongbad', password='thecheat')
-stdin, stdout, stderr = client.exec_command('ls')
-for line in stdout:
-    print '... ' + line.strip('\n')
-client.close()
+# Module to deal with ssh connections and command execution using plink and cmd
+import os
+import easygui
+
+def run():
+	hostIP = easygui.enterbox(msg="Enter Host IP Address", 
+		title="DARWIN | One-Click Ananconda2 on 14.04"
+		)
+	os.system('plink -ssh -t root@'+hostIP)
+	#wget -O <path> <download path>
+
+if __name__ == '__main__':
+	run()

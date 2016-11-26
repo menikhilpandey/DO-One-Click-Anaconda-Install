@@ -14,8 +14,7 @@ def main():
 	if confirm:
 		CONFIG = config.run()
 		dropletapi.createDroplet(TOKEN,CONFIG)
-		print "success"
-		
+		#sshagent.run()
 	else:
 		easygui.msgbox(msg="Thanks For using me!",
 						title="DARWIN | One-Click Ananconda2 on 14.04")
